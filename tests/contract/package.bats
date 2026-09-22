@@ -9,10 +9,10 @@ setup() {
   ALPHACLAW_SPEC="$(node -e 'console.log(require(process.argv[1]).dependencies.alphaclaw)' "$REPO/package.json")"
 }
 
-@test "package.json: alphaclaw is a git+https dependency on garrytan/alphaclaw" {
+@test "package.json: alphaclaw is a git+https dependency on we-promise/alphaclaw" {
   # https (not ssh, not the github: shorthand): the node:24-slim Docker build
   # has no SSH key, so the spec must fetch anonymously over HTTPS.
-  [[ "$ALPHACLAW_SPEC" =~ ^git\+https://github\.com/garrytan/alphaclaw\.git# ]]
+  [[ "$ALPHACLAW_SPEC" =~ ^git\+https://github\.com/we-promise/alphaclaw\.git# ]]
 }
 
 @test "package.json: alphaclaw is pinned to a full commit SHA, not a branch" {
