@@ -83,6 +83,7 @@ export PATH="/app/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/us
 # hidden — (re)create /data/tmp here on every boot. Re-export the standard temp
 # trio too (same belt-and-suspenders reasoning as PATH above: Render's runtime
 # can munge the env even though the Dockerfile sets these via ENV).
+chmod +t /data || exit 1
 export TMPDIR=/data/tmp TEMP=/data/tmp TMP=/data/tmp
 mkdir -p "$TMPDIR" 2>/dev/null || true
 chmod 1777 "$TMPDIR" 2>/dev/null || true
